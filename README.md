@@ -1,5 +1,4 @@
 # bjorked
-BjorkEd Learning Platform
 ###World's Premier Online Cloud-Based Learning Platform
 
 This repository contains the prototype for the world's premier online cloud-based learning platform for educators and students. The platform is designed to provide a personalized and engaging learning experience for users by incorporating advanced features and leveraging cutting-edge technology.
