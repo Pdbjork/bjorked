@@ -1,0 +1,17 @@
+function adaptivePracticeSchedule(userPerformance) {
+  let practiceFrequency;
+  let practiceDifficulty;
+
+  if (userPerformance >= 80) {
+    practiceFrequency = "once a week";
+    practiceDifficulty = "advanced";
+  } else if (userPerformance >= 60) {
+    practiceFrequency = "twice a week";
+    practiceDifficulty = "intermediate";
+  } else {
+    practiceFrequency = "three times a week";
+    practiceDifficulty = "beginner";
+  }
+
+  return { frequency: practiceFrequency, difficulty: practiceDifficulty };
+}
