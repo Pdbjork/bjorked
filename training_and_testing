@@ -1,0 +1,43 @@
+// Import the necessary libraries.
+import numpy as np
+import pandas as pd
+from sklearn.linear_model import LogisticRegression
+from sklearn.model_selection import train_test_split
+
+// Load the data.
+data = pd.read_csv("data.csv")
+
+// Split the data into training and testing sets.
+X_train, X_test, y_train, y_test = train_test_split(data.drop("interest", axis=1), data["interest"], test_size=0.2)
+
+// Train the model.
+model = LogisticRegression()
+model.fit(X_train, y_train)
+
+// Make predictions on the testing set.
+y_pred = model.predict(X_test)
+
+// Evaluate the model.
+print(model.score(X_test, y_test))
+
+// Calculate the accuracy score.
+accuracy = np.mean(y_pred == y_test)
+print("Accuracy:", accuracy)
+
+// Save the model.
+model.save("model.pkl")
+
+// Load the model.
+model = LogisticRegression()
+model.load("model.pkl")
+
+// Make predictions on new data.
+new_data = pd.DataFrame({
+    "skill_proficiency": [0.5, 0.7, 0.9],
+    "user_interest": [1, 2, 3]
+})
+
+y_pred = model.predict(new_data)
+
+// Print the predictions.
+print(y_pred)
