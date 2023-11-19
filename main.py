@@ -12,4 +12,5 @@ class User:
         # Create a new learning goal object
         new_goal = LearningGoal(goal)
         # Add the learning goal to the user's list of learning goals
-        self.learning_goals.append(new
+        self.learning_goals.append(new_goal)
+
