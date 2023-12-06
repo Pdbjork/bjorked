@@ -1,0 +1,44 @@
+from flask import Flask, request, jsonify
+from textblob import TextBlob
+
+app = Flask(__name__)
+
+@app.route('/analyze_sentiment', methods=['POST'])
+def analyze_sentiment():
+    try:
+        # Get input text from the request
+        data = request.get_json()
+
+        # Validate input
+        if 'user_response' not in data or not isinstance(data['user_response'], str):
+            raise ValueError("Invalid input. 'user_response' field must be a non-empty string.")
+
+        user_response = data['user_response']
+
+        # Perform sentiment analysis using TextBlob
+        analysis = TextBlob(user_response)
+
+        # Determine sentiment
+        sentiment = get_sentiment(analysis.sentiment.polarity)
+
+        # Return the result as JSON
+        result = {'sentiment': sentiment}
+        return jsonify(result)
+
+    except Exception as e:
+        # Log the exception for debugging
+        print(f"Error: {str(e)}")
+        return jsonify({'error': 'An unexpected error occurred.'}), 500
+
+def get_sentiment(polarity):
+    # Define sentiment categories based on polarity
+    if polarity > 0:
+        return 'Positive'
+    elif polarity < 0:
+        return 'Negative'
+    else:
+        return 'Neutral'
+
+if __name__ == '__main__':
+    # Run the Flask app
+    app.run(debug=True)
