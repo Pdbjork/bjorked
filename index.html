@@ -1,49 +1,282 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="BjorkEd Company Front Page">
-    <title>BjorkEd | Empowering Education & Growth</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta
+    name="description"
+    content="BjorkEd helps schools, educators, students, and families navigate postsecondary readiness, AI integration, and practical advising systems."
+  />
+  <title>BjorkEd | AI + Postsecondary Readiness</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-    <!-- Animated background blobs -->
-    <div class="background-blob blob-1"></div>
-    <div class="background-blob blob-2"></div>
-    
-    <main class="container">
-        <header class="hero">
-            <h1>Welcome to <span class="gradient-text">BjorkEd</span></h1>
-            <p class="subtitle">Empowering learners and organizations through innovative education platforms and expert consulting.</p>
-        </header>
+  <div class="background-blob blob-1"></div>
+  <div class="background-blob blob-2"></div>
 
-        <section class="branches-grid">
-            <a href="./learning/" class="branch-card" id="learning-card">
-                <div class="card-content">
-                    <div class="card-icon">🎓</div>
-                    <h2>Learning Platform</h2>
-                    <p>Access our personalized, adaptive learning tools and elevate your educational journey with AI-driven insights.</p>
-                </div>
+  <nav class="nav">
+    <div class="container nav-inner">
+      <a class="brand" href="#top">Bjork<span>Ed</span></a>
+
+      <button class="menu-toggle" id="menu-toggle" aria-label="Toggle menu" aria-expanded="false">
+        ☰
+      </button>
+
+      <div class="nav-links" id="nav-links">
+        <a href="#services">Services</a>
+        <a href="#space">Space</a>
+        <a href="#approach">Approach</a>
+        <a href="./learning/">Learning Platform</a>
+        <a href="./consulting/">Consulting</a>
+        <a href="#contact" class="btn btn-secondary nav-cta">Book a Conversation</a>
+      </div>
+    </div>
+  </nav>
+
+  <main id="top">
+    <section class="hero container">
+      <div class="hero-grid">
+        <div class="hero-copy">
+          <div class="eyebrow">AI + Postsecondary Readiness + School Strategy</div>
+          <h1>
+            BjorkEd helps schools and families move from intention to execution.
+          </h1>
+          <p class="subtitle">
+            We design practical systems for postsecondary readiness, educator support,
+            and responsible AI integration. From student advising to professional
+            development to school-facing strategy, BjorkEd helps people do the work that
+            matters with more clarity, structure, and momentum.
+          </p>
+
+          <div class="hero-actions">
+            <a href="#contact" class="btn btn-primary">Schedule an Intro Meeting</a>
+            <a href="./consulting/" class="btn btn-secondary">Consulting Services</a>
+            <a href="./learning/" class="btn btn-secondary">Learning Platform</a>
+          </div>
+
+          <div class="proof-points">
+            <span>Based in Chicago</span>
+            <span>Consulting + Workshops + Strategy</span>
+            <span>Built for schools, educators, students, and families</span>
+          </div>
+        </div>
+
+        <div class="hero-card">
+          <div class="card-label">What we do</div>
+
+          <div class="hero-service">
+            <h3>Postsecondary advising intensives</h3>
+            <p>
+              Application, financial aid, and planning support that turns overwhelm into
+              a real pathway.
+            </p>
+          </div>
+
+          <div class="hero-service">
+            <h3>AI workshops for educators</h3>
+            <p>
+              Hands-on sessions focused on classroom use, workflow efficiency, and
+              ethical implementation.
+            </p>
+          </div>
+
+          <div class="hero-service">
+            <h3>School and district consulting</h3>
+            <p>
+              Custom strategy for advising systems, student supports, and implementation
+              planning.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="services" class="section container">
+      <div class="section-head">
+        <h2>Services designed for immediate use</h2>
+        <p>
+          BjorkEd is built around offerings that schools, educators, students, and
+          families can use right away, while also supporting longer-term systems change.
+        </p>
+      </div>
+
+      <div class="grid-3">
+        <article class="card">
+          <span class="tag">Students + Families</span>
+          <h3>Postsecondary Bootcamps</h3>
+          <p>
+            High-impact in-person sessions covering college applications, financial aid,
+            scholarships, planning timelines, and decision support.
+          </p>
+          <p class="card-note">
+            Ideal for students, parents, and community-based cohorts.
+          </p>
+        </article>
+
+        <article class="card">
+          <span class="tag">Educators + Teams</span>
+          <h3>AI for Educators Workshops</h3>
+          <p>
+            Practical professional development focused on lesson planning, feedback,
+            productivity, advising workflows, and responsible AI use in schools.
+          </p>
+          <p class="card-note">
+            Ideal for teachers, counselors, school teams, and nonprofits.
+          </p>
+        </article>
+
+        <article class="card">
+          <span class="tag">Schools + Districts</span>
+          <h3>Strategy and Implementation</h3>
+          <p>
+            Consulting support for advising structures, college readiness systems, staff
+            training, and student-centered program design.
+          </p>
+          <p class="card-note">
+            Ideal for school leaders, district partners, and mission-driven organizations.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <section id="space" class="section container">
+      <div class="two-col">
+        <article class="card">
+          <div class="section-head compact">
+            <h2>A space built for thought, planning, and real work</h2>
+            <p>
+              BjorkEd operates from a creative, professional environment designed for
+              small workshops, advisory sessions, and strategy meetings.
+            </p>
+          </div>
+
+          <ul class="feature-list">
+            <li>Small-group workshops for 8 to 12 participants</li>
+            <li>Consulting conversations in a warm, polished setting</li>
+            <li>Flexible layout for intensives, advising, and team planning</li>
+            <li>Designed to feel more like a studio than a traditional office</li>
+          </ul>
+        </article>
+
+        <article class="card">
+          <div class="section-head compact">
+            <h2>How the room works</h2>
+            <p>
+              The space supports three kinds of work at once, which makes it ideal for a
+              growing consultancy and learning venture.
+            </p>
+          </div>
+
+          <div class="steps">
+            <div class="step">
+              <div class="step-number">1</div>
+              <div>
+                <strong>Workshop zone</strong>
+                <p>For bootcamps, educator sessions, and small collaborative intensives.</p>
+              </div>
+            </div>
+
+            <div class="step">
+              <div class="step-number">2</div>
+              <div>
+                <strong>Consulting zone</strong>
+                <p>For school leaders, partners, and student advisory conversations.</p>
+              </div>
+            </div>
+
+            <div class="step">
+              <div class="step-number">3</div>
+              <div>
+                <strong>Connection zone</strong>
+                <p>For informal conversation, coffee, networking, and relationship building.</p>
+              </div>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="approach" class="section container">
+      <div class="two-col">
+        <article class="card">
+          <div class="section-head compact">
+            <h2>Our approach</h2>
+            <p>
+              BjorkEd is grounded in the belief that advising, learning, and technology
+              should feel more human and more useful, not more abstract.
+            </p>
+          </div>
+
+          <ul class="feature-list">
+            <li>Practical over performative</li>
+            <li>Student-centered and outcome-aware</li>
+            <li>Built for implementation, not just inspiration</li>
+            <li>Attentive to ethics, access, and real constraints</li>
+          </ul>
+        </article>
+
+        <article class="card">
+          <div class="section-head compact">
+            <h2>Who we serve</h2>
+            <p>
+              We work with people and institutions trying to bridge ambition and execution
+              in education.
+            </p>
+          </div>
+
+          <ul class="feature-list">
+            <li>High school students navigating postsecondary decisions</li>
+            <li>Families who want clarity on college, aid, and next steps</li>
+            <li>Educators looking for grounded, responsible AI use cases</li>
+            <li>Schools and districts building stronger readiness systems</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section id="contact" class="section container contact-section">
+      <div class="cta-box">
+        <div>
+          <h2>Let’s build something useful.</h2>
+          <p>
+            Whether you need a workshop, a planning session, or a deeper strategic
+            partnership, BjorkEd is ready to help schools and families move forward with
+            more confidence and structure.
+          </p>
+        </div>
+
+        <div class="contact-panel">
+          <ul class="contact-list">
+            <li><strong>Email:</strong> hello@bjorked.com</li>
+            <li><strong>Location:</strong> Chicago, Illinois</li>
+            <li><strong>Booking:</strong> Intro meetings available by request</li>
+          </ul>
+
+          <div class="hero-actions">
+            <a
+              class="btn btn-primary"
+              href="mailto:hello@bjorked.com?subject=BjorkEd%20Inquiry"
+            >
+              Email BjorkEd
             </a>
-            
-            <a href="./consulting/" class="branch-card" id="consulting-card">
-                <div class="card-content">
-                    <div class="card-icon">💼</div>
-                    <h2>Consulting Services</h2>
-                    <p>Partner with our experts to design effective training strategies and robust educational systems for your business.</p>
-                </div>
-            </a>
-        </section>
-    </main>
+            <a class="btn btn-secondary" href="#top">Back to Top</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
 
-    <footer>
-        <p>&copy; 2026 BjorkEd. All rights reserved.</p>
-    </footer>
+  <footer>
+    <p>&copy; <span id="year"></span> BjorkEd. All rights reserved.</p>
+  </footer>
 
-    <script src="script.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
