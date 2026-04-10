@@ -1,15 +1,21 @@
-document.addEventListener("DOMContentLoaded", () => {
-    const cards = document.querySelectorAll(".branch-card");
+const yearEl = document.getElementById("year");
+if (yearEl) {
+  yearEl.textContent = new Date().getFullYear();
+}
 
-    // Add a dynamic glow effect that follows the mouse when hovering over the cards
-    cards.forEach(card => {
-        card.addEventListener("mousemove", (e) => {
-            const rect = card.getBoundingClientRect();
-            const x = e.clientX - rect.left;
-            const y = e.clientY - rect.top;
+const menuToggle = document.getElementById("menu-toggle");
+const navLinks = document.getElementById("nav-links");
 
-            card.style.setProperty("--mouse-x", `${x}px`);
-            card.style.setProperty("--mouse-y", `${y}px`);
-        });
+if (menuToggle && navLinks) {
+  menuToggle.addEventListener("click", () => {
+    const isOpen = navLinks.classList.toggle("open");
+    menuToggle.setAttribute("aria-expanded", String(isOpen));
+  });
+
+  navLinks.querySelectorAll("a").forEach((link) => {
+    link.addEventListener("click", () => {
+      navLinks.classList.remove("open");
+      menuToggle.setAttribute("aria-expanded", "false");
     });
-});
+  });
+}
