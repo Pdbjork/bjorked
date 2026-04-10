@@ -1,44 +1,641 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Consulting Services | BjorkEd</title>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta
+    name="description"
+    content="BjorkEd consulting supports schools, educators, and mission-driven organizations with postsecondary readiness strategy, AI integration, workshops, and implementation support."
+  />
+  <title>BjorkEd Consulting | Strategy, Workshops, and School Support</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  />
+  <style>
+    :root {
+      --bg: #0b1222;
+      --bg-2: #111827;
+      --panel: rgba(255, 255, 255, 0.06);
+      --panel-strong: rgba(255, 255, 255, 0.08);
+      --line: rgba(255, 255, 255, 0.1);
+      --text: #e5e7eb;
+      --muted: #9ca3af;
+      --accent: #67e8f9;
+      --accent-2: #38bdf8;
+      --green: #22c55e;
+      --gold: #fbbf24;
+      --shadow: 0 20px 60px rgba(0, 0, 0, 0.28);
+      --radius: 24px;
+      --max-width: 1180px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: "Outfit", sans-serif;
+      background:
+        radial-gradient(circle at top left, rgba(56, 189, 248, 0.12), transparent 25%),
+        linear-gradient(180deg, var(--bg) 0%, var(--bg-2) 100%);
+      color: var(--text);
+      line-height: 1.55;
+      overflow-x: hidden;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    .container {
+      width: min(calc(100% - 32px), var(--max-width));
+      margin: 0 auto;
+    }
+
+    .background-blob {
+      position: fixed;
+      border-radius: 999px;
+      filter: blur(80px);
+      opacity: 0.18;
+      z-index: -1;
+      pointer-events: none;
+    }
+
+    .blob-1 {
+      width: 360px;
+      height: 360px;
+      background: #0ea5e9;
+      top: 4%;
+      left: -100px;
+    }
+
+    .blob-2 {
+      width: 420px;
+      height: 420px;
+      background: #8b5cf6;
+      right: -140px;
+      bottom: 8%;
+    }
+
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      backdrop-filter: blur(16px);
+      background: rgba(11, 18, 34, 0.78);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      min-height: 78px;
+    }
+
+    .brand {
+      font-size: 1.2rem;
+      font-weight: 800;
+      letter-spacing: 0.02em;
+    }
+
+    .brand span { color: var(--accent); }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+
+    .nav-links a {
+      color: var(--muted);
+      font-weight: 500;
+      transition: color 0.2s ease;
+    }
+
+    .nav-links a:hover { color: var(--text); }
+
+    .menu-toggle {
+      display: none;
+      border: 1px solid var(--line);
+      background: rgba(255, 255, 255, 0.04);
+      color: var(--text);
+      border-radius: 14px;
+      padding: 10px 12px;
+      font-size: 1.1rem;
+      cursor: pointer;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 14px 18px;
+      border-radius: 999px;
+      font-weight: 700;
+      transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+    }
+
+    .btn:hover { transform: translateY(-1px); }
+
+    .btn-primary {
+      color: #082032;
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      box-shadow: var(--shadow);
+    }
+
+    .btn-secondary {
+      color: var(--text);
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid var(--line);
+    }
+
+    h1, h2, h3 {
+      margin: 0 0 14px;
+      line-height: 1.05;
+    }
+
+    h1 {
+      font-size: clamp(2.7rem, 6vw, 4.8rem);
+      letter-spacing: -0.04em;
+    }
+
+    h2 {
+      font-size: clamp(1.8rem, 3vw, 2.5rem);
+      letter-spacing: -0.03em;
+    }
+
+    h3 { font-size: 1.18rem; }
+
+    .hero {
+      padding: 78px 0 34px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.08fr 0.92fr;
+      gap: 28px;
+      align-items: center;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      margin-bottom: 18px;
+      padding: 8px 12px;
+      font-size: 0.9rem;
+      font-weight: 700;
+      border-radius: 999px;
+      color: #cffafe;
+      background: rgba(34, 211, 238, 0.12);
+      border: 1px solid rgba(103, 232, 249, 0.24);
+    }
+
+    .subtitle,
+    .section-head p,
+    .card p,
+    .feature-list li,
+    .note,
+    .step p,
+    .contact-list li,
+    .hero-panel p,
+    .audience-list li,
+    .price-list li {
+      color: var(--muted);
+    }
+
+    .subtitle {
+      max-width: 720px;
+      font-size: 1.08rem;
+      margin-bottom: 24px;
+    }
+
+    .hero-actions,
+    .button-row {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      margin-bottom: 22px;
+    }
+
+    .proof-points {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .hero-panel,
+    .card,
+    .cta-box {
+      border: 1px solid var(--line);
+      background: linear-gradient(180deg, var(--panel-strong), var(--panel));
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+
+    .hero-panel,
+    .card { padding: 24px; }
+
+    .card-label {
+      font-size: 0.88rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-weight: 800;
+      color: var(--accent);
+      margin-bottom: 14px;
+    }
+
+    .panel-block {
+      padding: 16px;
+      border-radius: 18px;
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      background: rgba(255, 255, 255, 0.04);
+      margin-bottom: 12px;
+    }
+
+    .panel-block:last-child { margin-bottom: 0; }
+
+    .section { padding: 34px 0; }
+
+    .section-head {
+      max-width: 760px;
+      margin-bottom: 24px;
+    }
+
+    .section-head.compact { margin-bottom: 18px; }
+
+    .grid-3,
+    .grid-2 {
+      display: grid;
+      gap: 18px;
+    }
+
+    .grid-3 { grid-template-columns: repeat(3, 1fr); }
+    .grid-2 { grid-template-columns: 1fr 1fr; }
+
+    .tag {
+      display: inline-block;
+      margin-bottom: 14px;
+      padding: 7px 11px;
+      border-radius: 999px;
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: #dcfce7;
+      background: rgba(34, 197, 94, 0.12);
+      border: 1px solid rgba(34, 197, 94, 0.22);
+    }
+
+    .price {
+      display: inline-block;
+      margin-top: 12px;
+      font-weight: 700;
+      color: var(--text);
+    }
+
+    .feature-list,
+    .audience-list,
+    .price-list,
+    .contact-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .feature-list,
+    .audience-list,
+    .price-list {
+      display: grid;
+      gap: 12px;
+    }
+
+    .feature-list li,
+    .audience-list li,
+    .price-list li {
+      padding: 13px 14px;
+      border-radius: 14px;
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      background: rgba(255, 255, 255, 0.03);
+    }
+
+    .steps {
+      display: grid;
+      gap: 14px;
+    }
+
+    .step {
+      display: grid;
+      grid-template-columns: 54px 1fr;
+      gap: 14px;
+      padding: 16px;
+      border-radius: 18px;
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      background: rgba(255, 255, 255, 0.03);
+    }
+
+    .step-number {
+      width: 54px;
+      height: 54px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      font-weight: 800;
+      color: #1f2937;
+      background: linear-gradient(135deg, var(--gold), #fde68a);
+    }
+
+    .step p { margin: 6px 0 0; }
+
+    .cta-box {
+      padding: 28px;
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 20px;
+      background:
+        radial-gradient(circle at top left, rgba(34, 211, 238, 0.12), transparent 28%),
+        linear-gradient(180deg, var(--panel-strong), var(--panel));
+    }
+
+    .contact-panel {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .contact-list {
+      display: grid;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+
+    footer {
+      padding: 22px 16px 40px;
+      text-align: center;
+      color: var(--muted);
+      border-top: 1px solid var(--line);
+    }
+
+    @media (max-width: 980px) {
+      .hero-grid,
+      .grid-3,
+      .grid-2,
+      .cta-box {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 760px) {
+      .menu-toggle {
+        display: inline-flex;
+      }
+
+      .nav-inner {
+        align-items: flex-start;
+        flex-wrap: wrap;
+        padding: 14px 0;
+      }
+
+      .nav-links {
+        display: none;
+        width: 100%;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 14px;
+        padding-top: 12px;
+      }
+
+      .nav-links.open { display: flex; }
+      .hero { padding-top: 56px; }
+      .hero-actions, .button-row { flex-direction: column; }
+      .hero-actions .btn, .button-row .btn { width: 100%; }
+      .proof-points { flex-direction: column; gap: 10px; }
+    }
+  </style>
 </head>
 <body>
-    <nav class="navbar">
-        <div class="logo">BjorkEd <span>Consulting</span></div>
-        <a href="/" class="back-link">← Return Home</a>
-    </nav>
+  <div class="background-blob blob-1"></div>
+  <div class="background-blob blob-2"></div>
 
-    <div class="hero-bg"></div>
+  <nav class="nav">
+    <div class="container nav-inner">
+      <a class="brand" href="../index.html">Bjork<span>Ed</span></a>
 
-    <main class="container">
-        <section class="hero-section">
-            <h1>Transform Your Educational Strategy</h1>
-            <p>We partner with organizations to build robust training systems and optimize human performance using data-driven insights.</p>
-            <button class="cta-btn">Book a Consultation</button>
-        </section>
+      <button class="menu-toggle" id="menu-toggle" aria-label="Toggle menu" aria-expanded="false">
+        ☰
+      </button>
 
-        <section class="services-grid">
-            <div class="service-card">
-                <div class="icon">📈</div>
-                <h3>Performance Analysis</h3>
-                <p>Pinpoint knowledge gaps and identify opportunities to maximize organizational efficiency.</p>
+      <div class="nav-links" id="nav-links">
+        <a href="../index.html">Home</a>
+        <a href="#offers">Offers</a>
+        <a href="#process">Process</a>
+        <a href="#contact" class="btn btn-secondary">Start a Conversation</a>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+    <section class="hero container">
+      <div class="hero-grid">
+        <div>
+          <div class="eyebrow">Consulting for schools, educators, and mission-driven teams</div>
+          <h1>Practical support for postsecondary readiness, AI integration, and school strategy.</h1>
+          <p class="subtitle">
+            BjorkEd Consulting helps schools and organizations build clearer systems, stronger advising structures, and more useful learning experiences. The focus is always practical: what can be implemented now, what supports people well, and what actually improves outcomes.
+          </p>
+          <div class="hero-actions">
+            <a href="#contact" class="btn btn-primary">Book an Intro Conversation</a>
+            <a href="mailto:hello@bjorked.com?subject=BjorkEd%20Consulting%20Inquiry" class="btn btn-secondary">Email BjorkEd</a>
+          </div>
+          <div class="proof-points">
+            <span>Chicago-based</span>
+            <span>Workshops + strategy + implementation support</span>
+            <span>Built for real school conditions</span>
+          </div>
+        </div>
+
+        <div class="hero-panel">
+          <div class="card-label">Core consulting areas</div>
+          <div class="panel-block">
+            <h3>Postsecondary readiness systems</h3>
+            <p>Support for application pipelines, advising structures, college and career planning, and family-facing clarity.</p>
+          </div>
+          <div class="panel-block">
+            <h3>AI integration for educators</h3>
+            <p>Professional development and workflow design for responsible, useful AI adoption in schools and classrooms.</p>
+          </div>
+          <div class="panel-block">
+            <h3>Program and implementation strategy</h3>
+            <p>Consulting for leaders building student supports, staff systems, and stronger educational experiences.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="offers" class="section container">
+      <div class="section-head">
+        <h2>Offers that can start quickly</h2>
+        <p>These engagements are designed to be easy to scope, easy to launch, and directly useful for schools, teams, and families.</p>
+      </div>
+
+      <div class="grid-3">
+        <article class="card">
+          <span class="tag">Workshop</span>
+          <h3>AI for Educators Session</h3>
+          <p>
+            A hands-on professional development session focused on lesson planning, feedback, productivity, advising workflows, and ethical classroom use.
+          </p>
+          <span class="price">Starting at $500 per session</span>
+        </article>
+
+        <article class="card">
+          <span class="tag">Student Support</span>
+          <h3>Postsecondary Bootcamp</h3>
+          <p>
+            A focused intensive covering applications, financial aid, scholarships, timelines, and decision-making for students and families.
+          </p>
+          <span class="price">Priced per cohort or per seat</span>
+        </article>
+
+        <article class="card">
+          <span class="tag">Strategy</span>
+          <h3>Consulting and Implementation</h3>
+          <p>
+            Custom support for school leaders and organizations building advising systems, student supports, and staff-facing processes.
+          </p>
+          <span class="price">Custom scope and pricing</span>
+        </article>
+      </div>
+    </section>
+
+    <section class="section container">
+      <div class="grid-2">
+        <article class="card">
+          <div class="section-head compact">
+            <h2>What clients can bring to the table</h2>
+            <p>These are the kinds of problems BjorkEd is built to help solve.</p>
+          </div>
+          <ul class="audience-list">
+            <li>We want a stronger postsecondary readiness structure, but our systems feel fragmented.</li>
+            <li>Our staff wants to use AI, but we need grounded and responsible implementation.</li>
+            <li>We need a workshop, advisory intensive, or planning session that feels practical, not generic.</li>
+            <li>We need help turning broad goals into a real plan with momentum.</li>
+          </ul>
+        </article>
+
+        <article class="card">
+          <div class="section-head compact">
+            <h2>Who this is for</h2>
+            <p>BjorkEd works best with people trying to build something thoughtful and useful in education.</p>
+          </div>
+          <ul class="feature-list">
+            <li>School leaders and program directors</li>
+            <li>Teachers, counselors, and advising teams</li>
+            <li>Nonprofits and community-based education organizations</li>
+            <li>Students and families seeking structured support</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section id="process" class="section container">
+      <div class="grid-2">
+        <article class="card">
+          <div class="section-head compact">
+            <h2>How engagement works</h2>
+            <p>The process is intentionally simple so work can begin without unnecessary friction.</p>
+          </div>
+          <div class="steps">
+            <div class="step">
+              <div class="step-number">1</div>
+              <div>
+                <strong>Intro conversation</strong>
+                <p>A short call to understand the problem, audience, and timeline.</p>
+              </div>
             </div>
-            <div class="service-card">
-                <div class="icon">⚙️</div>
-                <h3>System Architecture</h3>
-                <p>Design scalable learning platforms tailored to your company's unique technology stack.</p>
+            <div class="step">
+              <div class="step-number">2</div>
+              <div>
+                <strong>Scope and recommendation</strong>
+                <p>A clear recommendation for a workshop, advisory intensive, or consulting engagement.</p>
+              </div>
             </div>
-            <div class="service-card">
-                <div class="icon">🧠</div>
-                <h3>Cognitive Engineering</h3>
-                <p>Apply advanced learning science principles to improve employee retention and skill mastery.</p>
+            <div class="step">
+              <div class="step-number">3</div>
+              <div>
+                <strong>Delivery and follow-through</strong>
+                <p>Implementation-focused work with materials, facilitation, and next-step clarity.</p>
+              </div>
             </div>
-        </section>
-    </main>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="section-head compact">
+            <h2>Starting price guide</h2>
+            <p>A simple reference point for early conversations. Final scope can be adjusted based on need.</p>
+          </div>
+          <ul class="price-list">
+            <li><strong>Intro consultation:</strong> by request</li>
+            <li><strong>Educator workshop:</strong> starting at $500</li>
+            <li><strong>Student or family bootcamp:</strong> cohort-based or per-seat pricing</li>
+            <li><strong>School consulting engagement:</strong> custom proposal</li>
+          </ul>
+          <p class="note" style="margin-top: 14px;">For early partners, pilot pricing or bundled engagements can be discussed.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="contact" class="section container" style="padding-bottom:72px;">
+      <div class="cta-box">
+        <div>
+          <h2>Let’s talk about what your team needs.</h2>
+          <p>
+            Whether you are looking for a workshop, a student-facing bootcamp, or a broader strategy engagement, BjorkEd can help shape a clear next step.
+          </p>
+        </div>
+        <div class="contact-panel">
+          <ul class="contact-list">
+            <li><strong>Email:</strong> hello@bjorked.com</li>
+            <li><strong>Location:</strong> Chicago, Illinois</li>
+            <li><strong>Format:</strong> In-person, hybrid, or virtual consulting available</li>
+          </ul>
+          <div class="button-row">
+            <a class="btn btn-primary" href="mailto:hello@bjorked.com?subject=BjorkEd%20Consulting%20Inquiry">Email BjorkEd</a>
+            <a class="btn btn-secondary" href="../index.html">Back to Home</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; <span id="year"></span> BjorkEd. All rights reserved.</p>
+  </footer>
+
+  <script>
+    const yearEl = document.getElementById("year");
+    if (yearEl) yearEl.textContent = new Date().getFullYear();
+
+    const menuToggle = document.getElementById("menu-toggle");
+    const navLinks = document.getElementById("nav-links");
+
+    if (menuToggle && navLinks) {
+      menuToggle.addEventListener("click", () => {
+        const isOpen = navLinks.classList.toggle("open");
+        menuToggle.setAttribute("aria-expanded", String(isOpen));
+      });
+
+      navLinks.querySelectorAll("a").forEach((link) => {
+        link.addEventListener("click", () => {
+          navLinks.classList.remove("open");
+          menuToggle.setAttribute("aria-expanded", "false");
+        });
+      });
+    }
+  </script>
 </body>
 </html>
